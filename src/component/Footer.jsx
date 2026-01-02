@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail, MdLocationOn } from "react-icons/md";
-import fimg from "../assets/arafatimage.png";
+import fimg from "../assets/arafattech.png";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -75,15 +75,17 @@ const Footer = () => {
   };
 
   return (
-    <footer className={`w-full pt-20 pb-8 px-6 md:px-12 lg:px-24 overflow-hidden transition-all duration-1000 ${
-      darkMode 
-        ? "bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white" 
-        : "bg-gradient-to-br from-slate-50 via-white to-gray-50 text-slate-900"
-    }`}>
+<footer className={`w-full pt-15 pb-8 px-6 md:px-12 lg:px-24 overflow-hidden transition-all duration-1000 shadow-2xl ${
+  darkMode 
+    ? "bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white shadow-[0_-10px_20px_rgba(6,182,212,0.6)] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-cyan-400/60 before:to-transparent" 
+    : "bg-gradient-to-br from-slate-50 via-white to-gray-50 text-slate-900 shadow-[0_-10px_20px_rgba(251,191,36,0.3)]"
+}`}>
+
+
       {/* Floating Particles Background */}
      
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl  mx-auto relative z-10">
         {/* Top Section - Logo → Quick Links → Contact (Perfect Order) */}
         <motion.div
           variants={containerVariants}
@@ -270,95 +272,92 @@ const Footer = () => {
 
 
           {/* 3rd: Contact Info */}
-          <motion.div variants={itemVariants} className="flex flex-col items-center lg:items-end text-center lg:text-right order-3">
-            <motion.h3 
-              className={`text-xl font-black mb-10 flex items-center gap-3 tracking-tight text-transparent bg-clip-text ${
-                darkMode 
-                  ? "bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500" 
-                  : "bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600"
-              }`}
-              whileHover={{
-                scale: 1.02,
-                textShadow: "0 0 20px rgba(34, 197, 94, 0.5)"
-              }}
-            >
-              Get In Touch
-              <motion.div 
-                className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full"
-                animate={{ 
-                  scale: [1, 1.3, 1],
-                  opacity: [0.8, 1, 0.8]
-                }}
-                transition={{ 
-                  duration: 1.5, 
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  delay: 0.5
-                }}
-              />
-            </motion.h3>
-            
-            <div className="space-y-4 max-w-sm w-full">
-              {[
-                {
-                  icon: MdEmail,
-                  text: "mdalarafatabir@gmail.com",
-                  href: "mailto:mdalarafatabir@gmail.com",
-                  color: darkMode ? "text-emerald-400" : "text-emerald-500"
-                },
-                {
-                  icon: MdLocationOn,
-                  text: "Dhamoirhat, Rajshahi, Bangladesh",
-                  href: "/contact",
-                  color: darkMode ? "text-blue-400" : "text-blue-500"
-                }
-              ].map(({ icon: Icon, text, href, color }, idx) => (
-                <motion.a
-                  key={idx}
-                  href={href}
-                  className={`flex items-center justify-center lg:justify-end gap-4 p-6 rounded-2xl transition-all group backdrop-blur-xl border border-white/10 hover:border-white/30 hover:shadow-2xl hover:shadow-amber-500/15 w-full relative overflow-hidden ${
-                    darkMode 
-                      ? "bg-slate-800/60 hover:bg-slate-700/80" 
-                      : "bg-white/90 hover:bg-slate-50 shadow-lg"
-                  }`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 + idx * 0.1 }}
-                  whileHover={{
-                    scale: 1.02,
-                    boxShadow: darkMode 
-                      ? "0 20px 40px rgba(251, 146, 60, 0.2)" 
-                      : "0 25px 50px rgba(251, 146, 60, 0.25)"
-                  }}
-                >
-                  <motion.div 
-                    className={`p-3 rounded-xl bg-gradient-to-br ${color} shadow-lg`}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <Icon className="w-6 h-6" />
-                  </motion.div>
-                  <span className={`text-base font-bold transition-all group-hover:font-black text-center lg:text-right ${
-                    darkMode ? "text-slate-200 hover:text-emerald-300" : "text-slate-800 hover:text-emerald-600"
-                  }`}>
-                    {text}
-                  </span>
-                  <motion.div 
-                    className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-400/20 to-orange-500/20 blur-xl -z-10"
-                    animate={{ 
-                      scale: [1, 1.1, 1],
-                      opacity: [0, 0.3, 0]
-                    }}
-                    transition={{ 
-                      duration: 2, 
-                      repeat: Infinity,
-                      repeatType: "reverse"
-                    }}
-                  />
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
+<motion.div 
+  variants={itemVariants} 
+  className="flex flex-col items-center lg:items-end text-center lg:text-right order-3"
+>
+  <motion.h3 
+    className={`text-xl font-black mb-10 flex items-center gap-3 tracking-tight text-transparent bg-clip-text ${
+      darkMode 
+        ? "bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500" 
+        : "bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600"
+    }`}
+  >
+    Get In Touch
+    <motion.div 
+      className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full shadow-lg"
+      animate={{ 
+        opacity: [0.7, 1, 0.7]
+      }}
+      transition={{ 
+        duration: 1.5, 
+        repeat: Infinity,
+        repeatType: "reverse",
+        delay: 0.3
+      }}
+    />
+  </motion.h3>
+  
+  <div className="space-y-4 max-w-sm w-full">
+    {[
+      {
+        icon: MdEmail,
+        text: "mdalarafatabir@gmail.com",
+        href: "mailto:mdalarafatabir@gmail.com",
+        color: darkMode ? "text-emerald-400" : "text-emerald-500"
+      },
+      {
+        icon: MdLocationOn,
+        text: "Dhamoirhat, Rajshahi, Bangladesh",
+        href: "/contact",
+        color: darkMode ? "text-blue-400" : "text-blue-500"
+      }
+    ].map(({ icon: Icon, text, href, color }, idx) => (
+      <motion.a
+        key={idx}
+        href={href}
+        className={`flex items-center transition-transform hover:scale-105 duration-300 justify-center lg:justify-end gap-4 p-6 rounded-2xl backdrop-blur-xl border border-white/10 w-full relative overflow-hidden ${
+          darkMode 
+            ? "bg-slate-800/70 shadow-xl" 
+            : "bg-white/40 shadow-lg"
+        }`}
+        whileTap={{ y: 1 }}
+        transition={{ duration: 0.1 }}
+      >
+        <motion.div 
+          className={`p-3 rounded-xl bg-gradient-to-br ${color} shadow-lg`}
+        >
+          <Icon className="w-6 h-6" />
+        </motion.div>
+        <span 
+          className={`text-base font-bold text-center lg:text-right ${
+            darkMode ? "text-slate-200" : "text-slate-800"
+          }`}
+        >
+          {text}
+        </span>
+        <motion.div 
+          className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 blur-xl -z-10"
+          animate={{ 
+            opacity: [0.1, 0.3, 0.1]
+          }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
+        />
+      </motion.a>
+    ))}
+  </div>
+</motion.div>
+
+
+
+
+
+
+
         </motion.div>
 
         {/* Animated Gradient Divider */}
@@ -386,63 +385,90 @@ const Footer = () => {
           />
         </motion.div>
 
+
+
+
+
+
+
        {/* Social Links & Copyright - Mobile: Links First, Then Text */}
 <motion.div
   initial={{ opacity: 0, y: 30 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ delay: 0.6, duration: 0.8 }}
   className="flex flex-col lg:flex-row justify-between items-center gap-8 pb-12"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 >
   {/* Social Links - Mobile First (order-1), Desktop Second (lg:order-2) */}
-  <motion.div 
-    className="flex items-center justify-center lg:justify-start gap-4 order-1 lg:order-2 w-full lg:w-auto"
-    variants={containerVariants}
-    initial="hidden"
-    animate="visible"
-  >
-    {socialLinks.map(({ icon: Icon, href, color }, idx) => (
-      <motion.a
-        key={href}
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`relative p-4 rounded-3xl text-white shadow-2xl backdrop-blur-xl border border-white/20 hover:border-amber-400/50 overflow-hidden group transition-all duration-300 ${
-          darkMode 
-            ? `${color} hover:shadow-amber-500/40 hover:shadow-xl hover:-translate-y-1 bg-opacity-90`
-            : "bg-gradient-to-br from-white via-amber-50/80 to-orange-50/70 shadow-white/50 hover:shadow-amber-400/30 hover:shadow-2xl hover:shadow-orange-500/20 hover:-translate-y-2 border-amber-200/50 hover:border-amber-400/60 backdrop-blur-2xl"
-        }`}
-        variants={itemVariants}
-        custom={idx}
-        whileHover={{
-          scale: 1.15,
-          y: -8,
-          boxShadow: "0 25px 50px rgba(251, 146, 60, 0.4)",
-          transition: { duration: 0.4, ease: "easeOut" }
-        }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <Icon className="w-6 h-6 relative z-10" />
-        <motion.div 
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-          initial={{ x: "-100%" }}
-          whileHover={{ x: "100%" }}
-          transition={{ duration: 0.6 }}
-        />
-        <motion.div 
-          className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-amber-400/30 to-orange-500/30 blur-xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.4, 0.6, 0.4]
-          }}
-          transition={{ 
-            duration: 2, 
-            repeat: Infinity,
-            repeatType: "reverse"
-          }}
-        />
-      </motion.a>
-    ))}
-  </motion.div>
+<motion.div 
+  className="flex items-center justify-center lg:justify-start gap-4 order-1 lg:order-2 w-full lg:w-auto"
+  variants={containerVariants}
+  initial="hidden"
+  animate="visible"
+>
+  {socialLinks.map(({ icon: Icon, href, color }, idx) => (
+    <motion.a
+      key={href}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`relative p-4 transition-all hover:scale-110 rounded-3xl text-white backdrop-blur-xl border border-white/20 overflow-hidden  duration-300 ${
+        darkMode 
+          ? `${color} `
+          : `${color} bg-white/9 backdrop-blur-2xl border-slate-200/50`
+      }`}
+      variants={itemVariants}
+      custom={idx}
+      whileTap={{ y: 1 }}
+      transition={{ duration: 0.1 }}
+    >
+      <Icon className="w-6 h-6 relative z-777" />
+      <motion.div 
+       className={`absolute inset-0 bg-blur opacity-90 ${
+  darkMode 
+    ? "bg-cyan-500" 
+    : "bg-red-400"
+}`}
+
+    animate={{ 
+  opacity: [0.9, 1, 0.8]
+}}
+transition={{ 
+  duration: 2, 
+  repeat: Infinity, 
+  repeatType: "reverse",
+  ease: "easeInOut"
+}}
+
+      />
+    </motion.a>
+  ))}
+</motion.div>
+
+
+
+
+
+
+
+
+
+
+
 
   {/* Copyright - Mobile Second (order-2), Desktop First (lg:order-1) */}
   <motion.div 

@@ -42,9 +42,9 @@ const Root = () => {
         <Header />
       </div>
 
-      <main>
+     
         <Outlet />
-      </main>
+   
 
       <Footer />
 

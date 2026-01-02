@@ -289,13 +289,13 @@ export default function About() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
             <motion.a
               href="/contact"
-              whileHover={{ scale: 1.08, y: -4 }}
+             
               whileTap={{ scale: 0.96 }}
               className="group relative bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white px-12 sm:px-16 py-6 sm:py-8 rounded-3xl font-black text-xl sm:text-2xl shadow-3xl hover:shadow-4xl border border-transparent hover:border-white/20 backdrop-blur-sm transition-all duration-500 overflow-hidden"
             >
               <span className="relative z-10 flex items-center gap-3">
                 Start Premium Project
-                <div className="w-3 h-3 bg-white/30 rounded-full group-hover:animate-ping group-hover:w-12 group-hover:h-12 transition-all duration-500" />
+                <div className="w-3 h-3 bg-white/30 rounded-full group-hover:animate-ping group-hover:w-8 group-hover:h-8 transition-all duration-500" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent -skew-x-12 transform -translate-x-4 group-hover:translate-x-8 transition-transform duration-700" />
             </motion.a>
@@ -303,7 +303,7 @@ export default function About() {
             <motion.a
               href="/services"
               whileHover={{ scale: 1.05 }}
-              className="px-12 sm:px-16 py-6 sm:py-8 border-2 border-white/40 hover:border-white/80 backdrop-blur-xl hover:backdrop-blur-2xl rounded-3xl font-bold text-xl sm:text-2xl text-white hover:text-slate-900 hover:bg-white/90 dark:hover:bg-slate-800/90 shadow-2xl hover:shadow-3xl transition-all duration-500"
+              className="px-6 sm:px-6 py-6 sm:py-8 border-2 border-white/40 hover:border-white/80 backdrop-blur-xl hover:backdrop-blur-2xl rounded-3xl font-bold text-xl sm:text-2xl text-white hover:text-slate-900 hover:bg-white/90 dark:hover:bg-slate-800/90 shadow-2xl hover:shadow-3xl transition-all duration-500"
             >
               View Project
             </motion.a>
