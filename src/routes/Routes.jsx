@@ -13,6 +13,7 @@ import HeaderLogoutButton from "../component/LogoutButton";
 import Clock from "../component/clock";
 import Services from "../pages/Services";
 import Forgot from "../component/Forgot";
+import ContactFrom from "../component/ContactFrom";
 
 const Routes = createBrowserRouter([
   {
@@ -22,15 +23,16 @@ const Routes = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/contact", element: <Contact /> },
-      { path: "/about", element: <About /> }, // Now protected inside component
+      { path: "/about", element: <About /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/account", element: <Account /> },
-      { path: "/services", element: <Services /> }, // Now protected inside
+      { path: "/services", element: <Services /> }, 
       { path: "/loginbutton", element: <HeaderLoginButton /> },
       { path: "/logoutbutton", element: <HeaderLogoutButton /> },
       { path: "/clock", element: <Clock /> },
       { path: "/forgot", element:<Forgot></Forgot> },
+      { path: "/contactfrom", element:<ContactFrom></ContactFrom> },
     ],
   },
 ]);

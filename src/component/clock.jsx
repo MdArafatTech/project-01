@@ -309,254 +309,256 @@ export default function Clock() {
   );
 
   return (
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   <div className="h-auto flex items-center justify-center sm:p-4 ">
-  <div className="w-full max-w-4xl mx-auto">
-    {/* Main Card - No extra padding/margin */}
-    <div >
-      {/* Dynamic Background Overlay */}
-      <div
-        className={`absolute inset-0  transition-all rounded-3xl duration-1000 ${
-          isDaytime
-            ? "bg-gradient-to-br from-amber-50/95 via-yellow-50/95 to-orange-50/95"
-            : "bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-blue-900/95"
-        }`}
-      />
-
-      {/* Country Selector */}
-      <div className="relative z-50 p-4 sm:p-6">
-        <div className="max-w-md mx-auto" ref={dropdownRef}>
-          <button
-            onClick={() => setDropdownOpen(!dropdownOpen)}
-            className={`w-full group flex items-center justify-between p-4 rounded-xl shadow-lg hover:shadow-xl border-2 backdrop-blur-md transition-all duration-300 ${
+    <div className="h-auto flex items-center justify-center sm:p-4 ">
+      <div className="w-full max-w-4xl mx-auto">
+        {/* Main Card - No extra padding/margin */}
+        <div>
+          {/* Dynamic Background Overlay */}
+          <div
+            className={`absolute inset-0  transition-all rounded-3xl duration-1000 ${
               isDaytime
-                ? "bg-gradient-to-r from-amber-400/30 via-yellow-300/30 to-orange-300/30 text-slate-900 border-amber-300/60 hover:border-amber-400/80"
-                : "bg-gradient-to-r from-slate-800/90 to-slate-700/90 text-white border-slate-600/60 hover:border-slate-500/80"
+                ? "bg-gradient-to-br from-amber-50/95 via-yellow-50/95 to-orange-50/95"
+                : "bg-gradient-to-br from-slate-900/95 via-slate-800/95 to-blue-900/95"
             }`}
-          >
-            <span className="font-medium truncate pr-4 text-base sm:text-lg">
-              {selectedCountry}
-            </span>
-            <span className={`text-lg ${isDaytime ? "text-orange-600" : "text-slate-300"} ${dropdownOpen ? "rotate-180" : ""} transition-transform duration-300`}>
-              ▼
-            </span>
-          </button>
-{dropdownOpen && (
-  <div className="fixed inset-x-0 top-17 bottom-0 z-[9999] sm:relative sm:inset-auto sm:top-auto sm:bottom-auto sm:mt-2 sm:z-auto">
-    {/* Mobile Backdrop - Darker in night mode */}
-    <div
-      className={`sm:hidden absolute inset-0 backdrop-blur-sm transition-colors ${
-        isDaytime ? "bg-black/40" : "bg-black/70"
-      }`}
-      onClick={() => setDropdownOpen(false)}
-    />
+          />
 
-    {/* Dropdown Panel - Day/Night adaptive */}
-    <div className={`mx-4 sm:mx-0 mt-2 sm:mt-0 rounded-2xl shadow-2xl border-2 backdrop-blur-xl overflow-hidden transition-all duration-300 ${
-      isDaytime
-        ? "bg-gradient-to-br from-amber-50/95 to-white/98 border-amber-200/70"
-        : "bg-gradient-to-br from-gray-900/95 to-gray-800/95 border-gray-700/60 shadow-2xl shadow-black/20"
-    }`}>
-      {/* Search Input - Responsive colors */}
-      <div className="p-4 border-b sticky top-0 backdrop-blur-md z-10 transition-colors">
-        <input
-          type="text"
-          placeholder="Search countries..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className={`w-full px-5 py-3 rounded-xl border-2 outline-none text-base font-medium transition-all duration-200 ${
-            isDaytime
-              ? "bg-amber-50/95 border-amber-300/70 text-gray-900 placeholder-gray-600 focus:border-amber-500 focus:bg-white/100 shadow-sm"
-              : "bg-gray-900/95 border-gray-600/70 text-gray-100 placeholder-gray-400 focus:border-indigo-500 focus:bg-gray-800/100 shadow-sm"
-          }`}
-          autoFocus
-        />
-      </div>
+          {/* Country Selector */}
+          <div className="relative z-50 p-4 sm:p-6">
+            <div className="max-w-md mx-auto" ref={dropdownRef}>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className={`w-full group flex items-center justify-between p-4 rounded-xl shadow-lg hover:shadow-xl border-2 backdrop-blur-md transition-all duration-300 ${
+                  isDaytime
+                    ? "bg-gradient-to-r from-amber-400/30 via-yellow-300/30 to-orange-300/30 text-slate-900 border-amber-300/60 hover:border-amber-400/80"
+                    : "bg-gradient-to-r from-slate-800/90 to-slate-700/90 text-white border-slate-600/60 hover:border-slate-500/80"
+                }`}
+              >
+                <span className="font-medium truncate pr-4 text-base sm:text-lg">
+                  {selectedCountry}
+                </span>
+                <span
+                  className={`text-lg ${
+                    isDaytime ? "text-orange-600" : "text-slate-300"
+                  } ${
+                    dropdownOpen ? "rotate-180" : ""
+                  } transition-transform duration-300`}
+                >
+                  ▼
+                </span>
+              </button>
+              {dropdownOpen && (
+                <div className="fixed inset-x-0 top-17 bottom-0 z-[9999] sm:relative sm:inset-auto sm:top-auto sm:bottom-auto sm:mt-2 sm:z-auto">
+                  {/* Mobile Backdrop - Darker in night mode */}
+                  <div
+                    className={`sm:hidden absolute inset-0 backdrop-blur-sm transition-colors ${
+                      isDaytime ? "bg-black/40" : "bg-black/70"
+                    }`}
+                    onClick={() => setDropdownOpen(false)}
+                  />
 
-      {/* Country List - Responsive items */}
-      <div className="max-h-[60vh] sm:max-h-72 overflow-y-auto">
-        {filteredCountries.length > 0 ? (
-          filteredCountries.map((country) => (
-            <button
-              key={country}
-              onClick={() => {
-                setSelectedCountry(country);
-                setDropdownOpen(false);
-                setSearch("");
-              }}
-              className={`w-full text-left px-6 py-4 text-base font-medium border-b last:border-b-0 transition-all duration-200 hover:scale-[1.01] ${
+                  {/* Dropdown Panel - Day/Night adaptive */}
+                  <div
+                    className={`mx-4 sm:mx-0 mt-2 sm:mt-0 rounded-2xl shadow-2xl border-2 backdrop-blur-xl overflow-hidden transition-all duration-300 ${
+                      isDaytime
+                        ? "bg-gradient-to-br from-amber-50/95 to-white/98 border-amber-200/70"
+                        : "bg-gradient-to-br from-gray-900/95 to-gray-800/95 border-gray-700/60 shadow-2xl shadow-black/20"
+                    }`}
+                  >
+                    {/* Search Input - Responsive colors */}
+                    <div className="p-4 border-b sticky top-0 backdrop-blur-md z-10 transition-colors">
+                      <input
+                        type="text"
+                        placeholder="Search countries..."
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        className={`w-full px-5 py-3 rounded-xl border-2 outline-none text-base font-medium transition-all duration-200 ${
+                          isDaytime
+                            ? "bg-amber-50/95 border-amber-300/70 text-gray-900 placeholder-gray-600 focus:border-amber-500 focus:bg-white/100 shadow-sm"
+                            : "bg-gray-900/95 border-gray-600/70 text-gray-100 placeholder-gray-400 focus:border-indigo-500 focus:bg-gray-800/100 shadow-sm"
+                        }`}
+                        autoFocus
+                      />
+                    </div>
+
+                    {/* Country List - Responsive items */}
+                    <div className="max-h-[60vh] sm:max-h-72 overflow-y-auto">
+                      {filteredCountries.length > 0 ? (
+                        filteredCountries.map((country) => (
+                          <button
+                            key={country}
+                            onClick={() => {
+                              setSelectedCountry(country);
+                              setDropdownOpen(false);
+                              setSearch("");
+                            }}
+                            className={`w-full text-left px-6 py-4 text-base font-medium border-b last:border-b-0 transition-all duration-200 hover:scale-[1.01] ${
+                              isDaytime
+                                ? "border-amber-100/50 text-gray-900 hover:bg-amber-100/80 hover:shadow-md"
+                                : "border-gray-800/50 text-gray-100 hover:bg-gray-800/70 hover:shadow-lg hover:shadow-indigo-900/20"
+                            } ${
+                              selectedCountry === country
+                                ? isDaytime
+                                  ? "bg-amber-200/70 ring-2 ring-amber-300/50 shadow-md"
+                                  : "bg-indigo-500/20 ring-2 ring-indigo-400/50 shadow-lg"
+                                : ""
+                            }`}
+                          >
+                            {country}
+                          </button>
+                        ))
+                      ) : (
+                        <div
+                          className={`p-12 text-center transition-colors ${
+                            isDaytime ? "text-amber-700" : "text-gray-400"
+                          }`}
+                        >
+                          <div className="text-5xl mb-4 opacity-60">🌍</div>
+                          <p className="text-lg font-medium">
+                            No countries found
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Clock & Weather - Tight Layout */}
+          <div className="relative z-10 px-4 sm:px-6 pb-8">
+            <div
+              className={`rounded-3xl border-4 shadow-2xl overflow-hidden ${
                 isDaytime
-                  ? "border-amber-100/50 text-gray-900 hover:bg-amber-100/80 hover:shadow-md"
-                  : "border-gray-800/50 text-gray-100 hover:bg-gray-800/70 hover:shadow-lg hover:shadow-indigo-900/20"
-              } ${
-                selectedCountry === country
-                  ? isDaytime
-                    ? "bg-amber-200/70 ring-2 ring-amber-300/50 shadow-md"
-                    : "bg-indigo-500/20 ring-2 ring-indigo-400/50 shadow-lg"
-                  : ""
+                  ? "bg-gradient-to-br from-yellow-400/25 via-amber-50/95 to-orange-400/25 text-orange-600 border-orange-400/70 shadow-orange-300/50"
+                  : "bg-gradient-to-br from-blue-500/25 via-slate-900/95 to-indigo-500/25 text-cyan-400 border-cyan-400/70 shadow-cyan-500/40"
               }`}
             >
-              {country}
-            </button>
-          ))
-        ) : (
-          <div className={`p-12 text-center transition-colors ${
-            isDaytime ? "text-amber-700" : "text-gray-400"
-          }`}>
-            <div className="text-5xl mb-4 opacity-60">🌍</div>
-            <p className="text-lg font-medium">No countries found</p>
-          </div>
-        )}
-      </div>
-    </div>
-  </div>
-)}
-
-
-        </div>
-      </div>
-
-      {/* Clock & Weather - Tight Layout */}
-      <div className="relative z-10 px-4 sm:px-6 pb-8">
-        <div className={`rounded-3xl border-4 shadow-2xl overflow-hidden ${
-          isDaytime
-            ? "bg-gradient-to-br from-yellow-400/25 via-amber-50/95 to-orange-400/25 text-orange-600 border-orange-400/70 shadow-orange-300/50"
-            : "bg-gradient-to-br from-blue-500/25 via-slate-900/95 to-indigo-500/25 text-cyan-400 border-cyan-400/70 shadow-cyan-500/40"
-        }`}>
-          <div className="p-6 sm:p-8 md:p-10 text-center">
-            {/* Time */}
-            <div className="mb-4">
-              <div className="font-mono text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
-                {two(hours % 12 === 0 ? 12 : hours % 12)}:{two(minutes)}:{two(seconds)}{" "}
-                <span className="text-3xl sm:text-5xl md:text-6xl font-light">
-                  {ampm}
-                </span>
-              </div>
-            </div>
-
-            {/* Date & City */}
-            <div className={`mb-6 text-base sm:text-xl md:text-2xl font-light opacity-90 ${
-              isDaytime ? "text-orange-700" : "text-slate-300"
-            }`}>
-              <div>
-                {time.toLocaleDateString(undefined, {
-                  weekday: "long",
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </div>
-              <div className="mt-2 text-sm sm:text-lg opacity-75">
-                {countryConfig[selectedCountry]?.city || selectedCountry}
-              </div>
-            </div>
-
-            {/* Loading / Error / Weather */}
-            {loading && (
-              <div className="py-6">
-                <div className="w-10 h-10 border-4 border-t-transparent rounded-full border-current mx-auto mb-3 animate-spin" />
-                <p className="text-lg opacity-75">Loading weather...</p>
-              </div>
-            )}
-
-            {error && (
-              <div className={`p-5 rounded-xl backdrop-blur-sm border ${
-                isDaytime
-                  ? "bg-orange-500/20 border-orange-400/50 text-orange-600"
-                  : "bg-cyan-500/20 border-cyan-400/50 text-cyan-300"
-              }`}>
-                {error}
-              </div>
-            )}
-
-            {weather && !loading && !error && (
-              <div className="space-y-6">
-                {/* Icon + Description */}
-                <div className="flex flex-col items-center">
-                  {weather.icon && (
-                    <img
-                      src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
-                      alt={weather.description}
-                      className="w-20 h-20 sm:w-24 sm:h-24"
-                    />
-                  )}
-                  <p className={`text-xl sm:text-2xl font-semibold capitalize mt-3 ${
-                    isDaytime ? "text-orange-700" : "text-cyan-300"
-                  }`}>
-                    {weather.description}
-                  </p>
+              <div className="p-6 sm:p-8 md:p-10 text-center">
+                {/* Time */}
+                <div className="mb-4">
+                  <div className="font-mono text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
+                    {two(hours % 12 === 0 ? 12 : hours % 12)}:{two(minutes)}:
+                    {two(seconds)}{" "}
+                    <span className="text-3xl sm:text-5xl md:text-6xl font-light">
+                      {ampm}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {[
-                    { label: "Temp", value: unit === "C" ? `${Math.round(weather.tempC)}°C` : `${Math.round(weather.tempF)}°F` },
-                    { label: "Humidity", value: `${weather.humidity}%` },
-                    { label: "Wind", value: `${weather.wind} m/s` },
-                    { label: "Pressure", value: `${weather.pressure} hPa` },
-                  ].map((item, i) => (
-                    <div
-                      key={i}
-                      className={`p-4 rounded-xl backdrop-blur-sm border ${
-                        isDaytime
-                          ? "bg-orange-300/20 border-orange-300/40"
-                          : "bg-cyan-400/20 border-cyan-400/40"
-                      }`}
-                    >
-                      <div className={`text-2xl sm:text-3xl font-bold ${
-                        isDaytime ? "text-orange-600" : "text-cyan-300"
-                      }`}>
-                        {item.value}
-                      </div>
-                      <div className="text-xs sm:text-sm mt-1 opacity-80">
-                        {item.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Unit Toggle */}
-                <button
-                  onClick={() => setUnit(unit === "C" ? "F" : "C")}
-                  className={`px-6 py-3 rounded-xl font-semibold shadow-lg transition-all ${
-                    isDaytime
-                      ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white"
-                      : "bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
+                {/* Date & City */}
+                <div
+                  className={`mb-6 text-base sm:text-xl md:text-2xl font-light opacity-90 ${
+                    isDaytime ? "text-orange-700" : "text-slate-300"
                   }`}
                 >
-                  Switch to °{unit === "C" ? "F" : "C"}
-                </button>
+                  <div>
+                    {time.toLocaleDateString(undefined, {
+                      weekday: "long",
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </div>
+                  <div className="mt-2 text-sm sm:text-lg opacity-75">
+                    {countryConfig[selectedCountry]?.city || selectedCountry}
+                  </div>
+                </div>
+
+                {/* Loading / Error / Weather */}
+                {loading && (
+                  <div className="py-6">
+                    <div className="w-10 h-10 border-4 border-t-transparent rounded-full border-current mx-auto mb-3 animate-spin" />
+                    <p className="text-lg opacity-75">Loading weather...</p>
+                  </div>
+                )}
+
+                {error && (
+                  <div
+                    className={`p-5 rounded-xl backdrop-blur-sm border ${
+                      isDaytime
+                        ? "bg-orange-500/20 border-orange-400/50 text-orange-600"
+                        : "bg-cyan-500/20 border-cyan-400/50 text-cyan-300"
+                    }`}
+                  >
+                    {error}
+                  </div>
+                )}
+
+                {weather && !loading && !error && (
+                  <div className="space-y-6">
+                    {/* Icon + Description */}
+                    <div className="flex flex-col items-center">
+                      {weather.icon && (
+                        <img
+                          src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+                          alt={weather.description}
+                          className="w-20 h-20 sm:w-24 sm:h-24"
+                        />
+                      )}
+                      <p
+                        className={`text-xl sm:text-2xl font-semibold capitalize mt-3 ${
+                          isDaytime ? "text-orange-700" : "text-cyan-300"
+                        }`}
+                      >
+                        {weather.description}
+                      </p>
+                    </div>
+
+                    {/* Stats Grid */}
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {[
+                        {
+                          label: "Temp",
+                          value:
+                            unit === "C"
+                              ? `${Math.round(weather.tempC)}°C`
+                              : `${Math.round(weather.tempF)}°F`,
+                        },
+                        { label: "Humidity", value: `${weather.humidity}%` },
+                        { label: "Wind", value: `${weather.wind} m/s` },
+                        { label: "Pressure", value: `${weather.pressure} hPa` },
+                      ].map((item, i) => (
+                        <div
+                          key={i}
+                          className={`p-4 rounded-xl backdrop-blur-sm border ${
+                            isDaytime
+                              ? "bg-orange-300/20 border-orange-300/40"
+                              : "bg-cyan-400/20 border-cyan-400/40"
+                          }`}
+                        >
+                          <div
+                            className={`text-2xl sm:text-3xl font-bold ${
+                              isDaytime ? "text-orange-600" : "text-cyan-300"
+                            }`}
+                          >
+                            {item.value}
+                          </div>
+                          <div className="text-xs sm:text-sm mt-1 opacity-80">
+                            {item.label}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Unit Toggle */}
+                    <button
+                      onClick={() => setUnit(unit === "C" ? "F" : "C")}
+                      className={`px-6 py-3 rounded-xl font-semibold shadow-lg transition-all ${
+                        isDaytime
+                          ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white"
+                          : "bg-gradient-to-r from-cyan-500 to-blue-500 text-white"
+                      }`}
+                    >
+                      Switch to °{unit === "C" ? "F" : "C"}
+                    </button>
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-
-
-
   );
 }

@@ -11,7 +11,6 @@ const Header = () => {
   const { currentUser } = useAuth();
   const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
-  const [toolsOpen, setToolsOpen] = useState(false);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -31,7 +30,7 @@ const Header = () => {
     <>
       {/* Header Spacer - Automatically pushes content below header */}
       <div className="h-24 lg:h-28 fixed top-0 left-0 right-0  invisible z-0" />
-      
+
       {/* Fixed Header */}
       <header
         className={`fixed top-0 left-0 right-0 shadow-md z-[3000] transition-colors duration-300 ${
@@ -50,8 +49,7 @@ const Header = () => {
               {[
                 { name: "Home", path: "/" },
                 { name: "About", path: "/about" },
-                   { name: "Services", path: "/services" },
-            
+                { name: "Services", path: "/services" },
               ].map((link) => (
                 <li key={link.path}>
                   <Link
@@ -65,9 +63,6 @@ const Header = () => {
                 </li>
               ))}
 
-      
-
-         
               <li>
                 <Link
                   to="/contact"
@@ -85,24 +80,32 @@ const Header = () => {
                 <li>
                   <Link to="/account">
                     <motion.button
-                      whileHover={{ 
-                        scale: 1.05, 
+                      whileHover={{
+                        scale: 1.05,
                         y: -4,
-                        boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.5)"
+                        boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.5)",
                       }}
                       whileTap={{ scale: 0.98, y: 0 }}
                       className={`group relative ${
-                        isActive("/account") 
-                          ? "bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500" 
-                          : darkMode 
-                            ? "bg-gradient-to-r from-indigo-900 via-purple-700 to-pink-700 text-white"
-                            : "bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-100 text-indigo-900"
+                        isActive("/account")
+                          ? "bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500"
+                          : darkMode
+                          ? "bg-gradient-to-r from-indigo-900 via-purple-700 to-pink-700 text-white"
+                          : "bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-100 text-indigo-900"
                       } px-3 py-2 rounded-3xl font-black text-lg shadow-2xl hover:shadow-3xl border-2 border-transparent hover:border-white/50 backdrop-blur-xl transition-all duration-500 overflow-hidden`}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-white/50 to-white/30 -skew-x-12 transform translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-700" />
                       <span className="relative z-10 cursor-pointer flex items-center justify-center gap-3 tracking-wide">
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                        <svg
+                          className="w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clipRule="evenodd"
+                          />
                         </svg>
                         Account
                         <div className="w-2 h-2 bg-white/80 rounded-full group-hover:animate-ping" />
@@ -161,7 +164,6 @@ const Header = () => {
               { name: "Home", path: "/" },
               { name: "About", path: "/about" },
               { name: "Services", path: "/services" },
-
             ].map((link) => (
               <li key={link.path}>
                 <Link
@@ -177,8 +179,6 @@ const Header = () => {
                 </Link>
               </li>
             ))}
-
-         
 
             <li>
               <Link
@@ -196,28 +196,34 @@ const Header = () => {
 
             {currentUser && (
               <li>
-                <Link
-                  onClick={() => setOpen(false)}
-                to="/account">
+                <Link onClick={() => setOpen(false)} to="/account">
                   <motion.button
-                    whileHover={{ 
-                      scale: 1.05, 
+                    whileHover={{
+                      scale: 1.05,
                       y: -4,
-                      boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.5)"
+                      boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.5)",
                     }}
                     whileTap={{ scale: 0.98, y: 0 }}
                     className={`group relative ${
-                      isActive("/account") 
-                        ? "bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500" 
-                        : darkMode 
-                          ? "bg-gradient-to-r from-indigo-900 via-purple-700 to-pink-700 text-white"
-                          : "bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-100 text-indigo-900"
+                      isActive("/account")
+                        ? "bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500"
+                        : darkMode
+                        ? "bg-gradient-to-r from-indigo-900 via-purple-700 to-pink-700 text-white"
+                        : "bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-100 text-indigo-900"
                     } px-3 py-2 rounded-3xl font-black text-lg shadow-2xl hover:shadow-3xl border-2 border-transparent hover:border-white/50 backdrop-blur-xl transition-all duration-500 overflow-hidden`}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-white/30 via-white/50 to-white/30 -skew-x-12 transform translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-700" />
                     <span className="relative z-10 cursor-pointer flex items-center justify-center gap-3 tracking-wide">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                      <svg
+                        className="w-5 h-5"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                          clipRule="evenodd"
+                        />
                       </svg>
                       Account
                       <div className="w-2 h-2 bg-white/80 rounded-full group-hover:animate-ping" />

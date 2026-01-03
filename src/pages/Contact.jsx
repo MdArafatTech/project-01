@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   FaGithub,
-
+  FaLinkedin,
   FaPhoneAlt,
   FaReact,
   FaJs,
@@ -12,7 +12,7 @@ import { MdEmail, MdLocationOn } from "react-icons/md";
 import { AiOutlineClose, AiOutlineMail } from "react-icons/ai";
 import { motion } from "framer-motion";
 import img from "../assets/abirprofile.png";
-
+import ContactForm from "../component/ContactFrom";
 
 const Contact = () => {
   const [showForm, setShowForm] = useState(false);
@@ -247,7 +247,18 @@ const Contact = () => {
 
 
 
-
+   <button
+  onClick={() => setShowForm(false)}
+  className={`group absolute top-8 sm:top-6  lg:top-6 right-5 sm:-right-3 xl:right-7 p-2.5 sm:p-3 lg:p-4 cursor-pointer rounded-3xl text-lg sm:text-xl lg:text-2xl xl:text-2xl z-20 transition-all duration-200 hover:scale-110 active:scale-95 shadow-2xl hover:shadow-white/20 backdrop-blur-md border border-white/10 hover:border-white/20 ${
+    darkMode 
+      ? "text-gray-300 hover:text-white bg-red-800/95 hover:bg-gray-700/95 shadow-gray-900/50" 
+      : "text-gray-700 hover:text-gray-900 bg-red-500 hover:bg-white shadow-lg shadow-black/10"
+  }`}
+  style={{ zIndex: 30 }}
+  aria-label="Close modal"
+>
+  <AiOutlineClose />
+</button>
 
 
 

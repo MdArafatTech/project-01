@@ -1,11 +1,6 @@
-
-
-
-
-
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import carimg from '../assets/logincar123 .png';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import carimg from "../assets/logincar123 .png";
 
 const m = motion;
 
@@ -34,20 +29,22 @@ export default function HeaderLoginButton() {
       className={`
         relative overflow-hidden rounded-full 
         p-[3px] shadow-2xl transition-all duration-500
-        ${isHovered && !isClicked ? 'scale-100 shadow-purple-500/80' : 'scale-100'}
-        ${isClicked ? 'cursor-wait' : 'cursor-pointer'}
+        ${
+          isHovered && !isClicked
+            ? "scale-100 shadow-purple-500/80"
+            : "scale-100"
+        }
+        ${isClicked ? "cursor-wait" : "cursor-pointer"}
         h-12 w-35 sm:w-40 md:w-44
       `}
       whileHover={{ scale: 1 }}
       whileTap={{ scale: 0.95 }}
     >
-
       {/* BORDER SWEEP */}
       <div className="border-sweep2 absolute inset-0 rounded-full"></div>
 
       {/* INNER BUTTON */}
       <div className="relative flex h-full w-full items-center justify-center rounded-full bg-black/95 backdrop-blur-xl px-8 border-2 border-transparent">
-
         {/* TEXT */}
         <m.span
           className="absolute z-20 font-medium tracking-wider text-white text-sm sm:text-base"
@@ -74,7 +71,7 @@ export default function HeaderLoginButton() {
               className="h-9 w-auto md:h-10 drop-shadow-2xl"
               style={{
                 filter:
-                  'hue-rotate(270deg) brightness(1.4) saturate(1.1) drop-shadow(0 0 20px #a855f7)',
+                  "hue-rotate(270deg) brightness(1.4) saturate(1.1) drop-shadow(0 0 20px #a855f7)",
               }}
             />
           </m.div>
@@ -97,7 +94,7 @@ export default function HeaderLoginButton() {
               className="h-11 w-auto md:h-12 drop-shadow-2xl"
               style={{
                 filter:
-                  'drop-shadow(0 0 30px #a855f7) drop-shadow(0 0 50px #d946ef)',
+                  "drop-shadow(0 0 30px #a855f7) drop-shadow(0 0 50px #d946ef)",
               }}
             />
           </m.div>
