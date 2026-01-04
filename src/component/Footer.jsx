@@ -369,6 +369,10 @@ const Footer = () => {
               ))}
             </div>
           </motion.div>
+
+
+
+          
         </motion.div>
 
         {/* Animated Gradient Divider */}
